@@ -1,0 +1,75 @@
+{
+  "config": {
+    "K": 32,
+    "H": 8,
+    "N": 512,
+    "D": 64,
+    "num_queries": 20,
+    "diversity": 1.0,
+    "sparsity": 0.85,
+    "num_seeds": 3,
+    "output": "results/ablation.json"
+  },
+  "ablation_results": {
+    "baseline": {
+      "config": {
+        "beta": 0.0,
+        "gamma": 0.0
+      },
+      "cos": 0.4211333617568016,
+      "mse": 0.36194323524832733,
+      "budget": 0.18574218749999996,
+      "name": "Baseline (\u03b2=0, \u03b3=0)"
+    },
+    "joint_kv": {
+      "config": {
+        "beta": 0.5,
+        "gamma": 0.0
+      },
+      "cos": 0.4178616344928742,
+      "mse": 0.3697521910071373,
+      "budget": 0.18367919921875,
+      "name": "Joint K-V only (\u03b2=0.5, \u03b3=0)"
+    },
+    "var_boost": {
+      "config": {
+        "beta": 0.0,
+        "gamma": 0.3
+      },
+      "cos": 0.41157176196575157,
+      "mse": 0.3833897739648819,
+      "budget": 0.1800537109375,
+      "name": "Variance boost only (\u03b2=0, \u03b3=0.3)"
+    },
+    "full": {
+      "config": {
+        "beta": 0.5,
+        "gamma": 0.3
+      },
+      "cos": 0.41641878336668015,
+      "mse": 0.37518734484910965,
+      "budget": 0.18153076171874996,
+      "name": "Full method (\u03b2=0.5, \u03b3=0.3)"
+    },
+    "aggressive": {
+      "config": {
+        "beta": 0.5,
+        "gamma": 0.5
+      },
+      "cos": 0.4285023584961891,
+      "mse": 0.35103777945041664,
+      "budget": 0.18913574218750004,
+      "name": "Aggressive (\u03b2=0.5, \u03b3=0.5)"
+    },
+    "v_dominant": {
+      "config": {
+        "beta": 1.0,
+        "gamma": 0.3
+      },
+      "cos": 0.4271609589457512,
+      "mse": 0.35636095553636543,
+      "budget": 0.185546875,
+      "name": "V-dominant (\u03b2=1.0, \u03b3=0.3)"
+    }
+  }
+}

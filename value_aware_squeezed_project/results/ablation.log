@@ -1,0 +1,42 @@
+================================================================================
+ABLATION STUDY (similar to Table 6 in paper)
+Setup: K=32 clusters, H=8 heads, N=512 keys
+       diversity=1.0, target_sparsity=0.85
+       averaged over 3 seeds
+================================================================================
+
+                 Configuration |   CosSim |        MSE |   Budget |  Δ vs base
+------------------------------------------------------------------------------------------
+           Baseline (β=0, γ=0) |   0.4211 |   0.361943 |   18.57% |          —
+   Joint K-V only (β=0.5, γ=0) |   0.4179 |   0.369752 |   18.37% |   -0.327pp
+Variance boost only (β=0, γ=0.3) |   0.4116 |   0.383390 |   18.01% |   -0.956pp
+    Full method (β=0.5, γ=0.3) |   0.4164 |   0.375187 |   18.15% |   -0.471pp
+     Aggressive (β=0.5, γ=0.5) |   0.4285 |   0.351038 |   18.91% |   +0.737pp
+     V-dominant (β=1.0, γ=0.3) |   0.4272 |   0.356361 |   18.55% |   +0.603pp
+
+Diễn giải:
+ - Joint K-V only: chỉ thay đổi clustering, không boost retrieval
+ - Variance boost only: chỉ boost retrieve, dùng key-only clustering
+ - Full method: kết hợp cả hai
+ - Δ pp dương = cải thiện so với baseline
+
+================================================================================
+DIVERSITY SWEEP (Full method vs Baseline)
+================================================================================
+
+ Diversity |         Method |   CosSim |        MSE |     Δ pp
+---------------------------------------------------------------------------
+      0.10 | Baseline (β=0, |   0.4269 |          - |        —
+      0.10 | Full method (β |   0.4340 |          - |   +0.716
+
+      0.50 | Baseline (β=0, |   0.4243 |          - |        —
+      0.50 | Full method (β |   0.4164 |          - |   -0.791
+
+      1.00 | Baseline (β=0, |   0.4211 |          - |        —
+      1.00 | Full method (β |   0.4164 |          - |   -0.471
+
+      2.00 | Baseline (β=0, |   0.4153 |          - |        —
+      2.00 | Full method (β |   0.4301 |          - |   +1.482
+
+
+Saved to results/ablation.json

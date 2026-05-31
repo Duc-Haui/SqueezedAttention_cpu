@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "value-aware-squeezed"
+version = "0.1.0"
+description = "Value-Aware Retrieval extension for Squeezed Attention"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "Value-Aware Contributors"},
+]
+keywords = ["attention", "llm", "kv-cache", "sparse-attention", "long-context"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "torch>=2.0",
+    "numpy>=1.24",
+]
+
+[project.optional-dependencies]
+benchmark = [
+    "transformers>=4.40",
+    "accelerate>=0.27",
+    "matplotlib>=3.6",
+    "tqdm>=4.65",
+]
+longbench = [
+    "datasets>=2.14",
+    "rouge>=1.0.1",
+    "fuzzywuzzy>=0.18.0",
+    "jieba>=0.42.1",
+]
+dev = [
+    "pytest>=7.0",
+]
+all = [
+    "value-aware-squeezed[benchmark,longbench,dev]",
+]
+
+[project.urls]
+Homepage = "https://github.com/SqueezeAILab/SqueezedAttention"
+Paper = "https://arxiv.org/abs/2411.09688"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["value_aware*"]
+exclude = ["tests*", "benchmarks*", "patches*", "scripts*", "docs*", "configs*"]

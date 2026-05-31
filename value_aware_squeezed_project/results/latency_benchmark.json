@@ -1,0 +1,29 @@
+{
+  "clustering": {
+    "key_only": 0.5603390420001233,
+    "value_aware": 0.8067943989990454,
+    "quest": 0.009067214999959106
+  },
+  "centroid_lookup": {
+    "lookup_key_only": 0.1602518333432575,
+    "lookup_value_aware": 0.20557853331411025
+  },
+  "online": {
+    "full": 1.4576133999677645,
+    "key_only": 2.3916721666561593,
+    "value_aware": 2.5521957333694445,
+    "quest": 2.456289600013406
+  },
+  "config": {
+    "context_length": 4096,
+    "num_heads": 16,
+    "head_dim": 64,
+    "percent_clusters": 5.0,
+    "sparsity": 0.85,
+    "kmeans_iters": 10,
+    "num_runs": 30,
+    "device": 0,
+    "cpu": false,
+    "output": "results/latency_benchmark.json"
+  }
+}

@@ -1,0 +1,7 @@
+README.md
+pyproject.toml
+value_aware_squeezed.egg-info/PKG-INFO
+value_aware_squeezed.egg-info/SOURCES.txt
+value_aware_squeezed.egg-info/dependency_links.txt
+value_aware_squeezed.egg-info/requires.txt
+value_aware_squeezed.egg-info/top_level.txt

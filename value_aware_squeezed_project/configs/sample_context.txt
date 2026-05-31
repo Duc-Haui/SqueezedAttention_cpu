@@ -1,0 +1,11 @@
+Large Language Models have seen rapid advancements, enabling Question Answering and
+analysis over documents. Long context-length applications have large memory requirements
+due to the size of the KV cache, which increases linearly with sequence length.
+For applications such as in-context learning, document QA, and code generation, a large
+portion of the input context is fixed across user queries. Squeezed Attention accelerates
+fixed context applications by clustering keys offline based on semantic similarity, then
+identifying important clusters for each query during inference. The hierarchical version
+reduces memory complexity from linear to logarithmic with respect to context length.
+The method achieves 4.3x speedup during prefill and 4.2x during decode.
+PreFixQA is a benchmark with arXiv documents and synthetic question-answer pairs.
+On LongBench, the method preserves accuracy with 3.1x KV budget reduction.

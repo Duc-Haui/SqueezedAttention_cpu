@@ -1,0 +1,44 @@
+{
+  "config": {
+    "model": "HuggingFaceTB/SmolLM2-135M-Instruct",
+    "device": 0,
+    "fp16": false,
+    "max_context": 512,
+    "obs_window": 32,
+    "percent_clusters": 5.0,
+    "kmeans_iters": 10,
+    "sparsity": 0.7,
+    "gamma": 0.3,
+    "alpha": 1.0,
+    "beta": 0.5,
+    "num_queries": 2,
+    "output": "results/pareto_sweep/accuracy_s0.7.json"
+  },
+  "stats": {
+    "num_queries": 2,
+    "num_layers": 30,
+    "num_heads": 3,
+    "fixed_context_length": 188,
+    "num_clusters": 7
+  },
+  "results": {
+    "key_only": {
+      "avg_cos_sim": 0.8237881029645602,
+      "avg_mse": 0.10863722462110369,
+      "avg_kv_budget": 0.3138532799979051,
+      "clustering_time_s": 0.14908051490783691
+    },
+    "value_aware": {
+      "avg_cos_sim": 0.8240433682998022,
+      "avg_mse": 0.09966912490419115,
+      "avg_kv_budget": 0.31047008708119395,
+      "clustering_time_s": 0.18178319931030273
+    },
+    "quest": {
+      "avg_cos_sim": 0.9086962968111039,
+      "avg_mse": 0.062298304413996655,
+      "avg_kv_budget": 0.3610398930807908,
+      "clustering_time_s": 0.01433420181274414
+    }
+  }
+}

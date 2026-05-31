@@ -1,0 +1,23 @@
+=== Running on CPU (slow but works for verify) ===
+Config: ctx=4096, H=16, D=64
+        clusters=5.0%, sparsity=0.85
+
+=== OFFLINE CLUSTERING TIME ===
+Context length: 4096, Heads: 16, Clusters: 204
+  Key-only K-means:      560.34 ms
+  Value-aware K-means:   806.79 ms (1.44x)
+  QUEST chunking:          9.07 ms
+
+=== CENTROID LOOKUP ONLY ===
+  Lookup base score (key-only style):   0.160 ms
+  Lookup with VA boost:                0.206 ms (+28.3%)
+  -> overhead value-aware boost: 0.0453 ms
+
+=== ONLINE PER-QUERY TIME ===
+Per-query latency (averaged over 30 runs after 5 warmup):
+  Full attention:    1.458 ms (baseline)
+  Key-only:          2.392 ms (0.61x speedup)
+  Value-aware:       2.552 ms (0.57x speedup)
+  QUEST:             2.456 ms (0.59x speedup)
+
+Results saved to results/latency_benchmark.json
